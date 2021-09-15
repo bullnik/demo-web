@@ -14,9 +14,9 @@ public class PostService {
 
     public PostService() {
         posts = new ArrayList<>();
-        posts.add(new Post("first", new Date()));
-        posts.add(new Post("second", new Date()));
-        posts.add(new Post("third", new Date()));
+        posts.add(new Post(0L, "first", new Date()));
+        posts.add(new Post(1L, "second", new Date()));
+        posts.add(new Post(2L, "third", new Date()));
     }
 
     public List<Post> listAllPosts() {
@@ -24,7 +24,8 @@ public class PostService {
     }
 
     public void create(String text) {
-        posts.add(new Post(text, new Date()));
+        Long newId = Integer.toUnsignedLong(posts.size());
+        posts.add(new Post(newId, text, new Date()));
     }
 
 }
