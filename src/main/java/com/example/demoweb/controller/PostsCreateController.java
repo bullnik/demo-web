@@ -8,18 +8,19 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class PostsCreateController {
+
     @Autowired
-    PostService postsService;
+    PostService postService;
 
     @RequestMapping(path = "/new", method = RequestMethod.GET)
-    public String create() {
+    public String list(Model model) {
+        model.addAttribute("appName", "Моё супер приложение!");
         return "create";
     }
 
     @RequestMapping(path = "/new", method = RequestMethod.POST)
     public String doCreate(@ModelAttribute("text") String text) {
-        postsService.create(text);
+        postService.create(text);
         return "redirect:/";
     }
-
 }

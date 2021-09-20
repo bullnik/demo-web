@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class LikesController {
-
     @Autowired
     LikesService likesService;
 
@@ -20,5 +19,4 @@ public class LikesController {
         int likes = likesService.like(id);
         return "" + likes;
     }
-
 }
