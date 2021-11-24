@@ -17,8 +17,9 @@ public class PostService {
         return postRepository.findAll();
     }
 
-    public void create(String text) {
+    public Post create(String text) {
         Post post = new Post(null, text, new Date());
         postRepository.save(post);
+        return post;
     }
 }
