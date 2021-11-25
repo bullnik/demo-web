@@ -18,6 +18,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Date;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
@@ -34,16 +35,12 @@ public class ServicesTests {
     PostRepository postRepository;
 
     @Test
-    void createPost() {
+    void createPost() throws Exception {
         String text = "jija";
         Post post = postService.create("jija");
 
         Mockito.verify(postRepository, Mockito.times(1)).save(post);
-    }
 
-    void likePost() {
-        likesService.like(0L);
-
-        Mockito.verify(postRepository, Mockito.times(1)).findById(0L);
+        Assertions.assertEquals(post.getText(), "jija");
     }
 }

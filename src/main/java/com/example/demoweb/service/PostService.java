@@ -17,6 +17,10 @@ public class PostService {
         return postRepository.findAll();
     }
 
+    public void deleteAllPosts() {
+        postRepository.deleteAll();
+    }
+
     public Post create(String text) {
         Post post = new Post(null, text, new Date());
         postRepository.save(post);

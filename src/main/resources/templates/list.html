@@ -10,10 +10,10 @@
 </head>
 <body>
 <div class="container">
-    <h1 th:text="${appName}" style="color: green">Default app name</h1>
+    <h1 id="app-name" th:text="${appName}" style="color: green">Default app name</h1>
     <hr/>
     <div class="content">
-        <div class="row article" th:each="post : ${posts}">
+        <div id="posts" class="row article" th:each="post : ${posts}">
             <div class="col-md-10 col-md-offset-1">
                 <h3 th:text="${'Пост от ' + post.creationDate}">Пост от 2019.09.08</h3>
             </div>
